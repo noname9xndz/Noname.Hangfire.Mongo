@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Hangfire;
+﻿using Hangfire;
 using Hangfire.Mongo;
 using Hangfire.Mongo.Migration.Strategies;
 using Hangfire.Mongo.Migration.Strategies.Backup;
@@ -12,9 +8,15 @@ using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
 using Noname.Hangfire.Mongo.Filters;
 using Noname.Hangfire.Mongo.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Noname.Hangfire.Mongo.Extensions
 {
+    /// <summary>
+    ///
+    /// </summary>
     public static class HangfireMongoBuilderExtensions
     {
         private static Dictionary<string, string> UserDashboardHangfire = new Dictionary<string, string>();

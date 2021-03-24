@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Noname.Hangfire.Mongo.Models
+﻿namespace Noname.Hangfire.Mongo.Models
 {
     public class MongoHangfireStorageConfig
     {

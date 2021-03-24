@@ -8,12 +8,13 @@ namespace Noname.Hangfire.Mongo
 {
     public static class HangfireContainer
     {
-        public static IServiceCollection AddCustomHangfireService(this IServiceCollection services, IConfiguration configuration, string hangfireConfigKey,string databaseName)
+        public static IServiceCollection AddCustomHangfireService(this IServiceCollection services, IConfiguration configuration, string hangfireConfigKey, string databaseName)
         {
+            services.RegisterService();
             MongoHangfireStorageConfig hangfireConfig = new MongoHangfireStorageConfig();
             configuration.GetSection(hangfireConfigKey).Bind(hangfireConfig);
-            HangfireMongoBuilderExtensions.AddHangfireStorage(services, configuration, 
-                "ets-api", HangfireMongoExtensions.GetEnvironmentName(), 
+            HangfireMongoBuilderExtensions.AddHangfireStorage(services, configuration,
+                "ets-api", HangfireMongoExtensions.GetEnvironmentName(),
                 hangfireConfig.ConnectionString, databaseName);
 
             return services;
@@ -25,9 +26,10 @@ namespace Noname.Hangfire.Mongo
             app.UseHangfireJob();
             return app;
         }
-        
-        
 
-
+        public static IServiceCollection RegisterService(this IServiceCollection services)
+        {
+            return services;
+        }
     }
 }

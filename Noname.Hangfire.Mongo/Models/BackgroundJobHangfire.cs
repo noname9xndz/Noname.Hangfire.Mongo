@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Hangfire.Mongo.Database;
+﻿using Hangfire.Mongo.Database;
 using MongoDB.Bson;
 using MongoDB.Driver;
 

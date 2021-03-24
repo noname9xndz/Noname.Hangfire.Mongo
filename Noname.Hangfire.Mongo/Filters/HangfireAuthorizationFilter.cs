@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Hangfire.Dashboard;
+using Noname.Hangfire.Mongo.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Text;
-using Hangfire.Dashboard;
-using Noname.Hangfire.Mongo.Extensions;
 
 namespace Noname.Hangfire.Mongo.Filters
 {
@@ -33,7 +33,7 @@ namespace Noname.Hangfire.Mongo.Filters
         /// <returns></returns>
         public bool Authorize(DashboardContext context)
         {
-            if (HangfireMongoExtensions.isDev()) return true;
+            if (HangfireMongoExtensions.IsDev()) return true;
             return AuthorizeBasic(context);
         }
 

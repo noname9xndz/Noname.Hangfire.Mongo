@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Web;
 
 namespace Noname.Hangfire.Mongo.Models
@@ -80,7 +78,7 @@ namespace Noname.Hangfire.Mongo.Models
                            select new
                            {
                                p.Name,
-                               Value = p.GetValue(paramsObject, null).ToString()
+                               Value = p.GetValue(paramsObject, null)?.ToString()
                            };
                 IEnumerable<string> properties = from p in data
                                                  where !string.IsNullOrWhiteSpace(p.Value)

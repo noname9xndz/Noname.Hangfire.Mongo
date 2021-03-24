@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Hangfire;
+﻿using Hangfire;
 using Noname.Hangfire.Mongo.Models;
+using System.Threading.Tasks;
 
 namespace Noname.Hangfire.Mongo.BackgroundJobs
 {
@@ -14,7 +11,6 @@ namespace Noname.Hangfire.Mongo.BackgroundJobs
         /// </summary>
         public CommonJob()
         {
-            
         }
 
         [Queue(QueueCustom.Queue0)]
@@ -23,8 +19,8 @@ namespace Noname.Hangfire.Mongo.BackgroundJobs
             var a = 1;
             var b = 2;
             var c = a + b;
+            await Task.CompletedTask;
             return true;
         }
-
     }
 }

@@ -38,8 +38,6 @@ namespace Noname.Hangfire.Mongo.Queue
             if (failedState != null && failedState.Exception != null)
             {
                 //todo push error data
-                //var slack = new SlackNotify(null);
-                //slack.SendErrorExceptionHangfire(failedState.Exception, failedState.Reason, failedState.SerializeData());
             }
         }
     }

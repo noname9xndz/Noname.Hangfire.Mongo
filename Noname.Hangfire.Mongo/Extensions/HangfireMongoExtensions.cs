@@ -1,28 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Hangfire;
-using Hangfire.Mongo;
-using Hangfire.Mongo.Migration.Strategies;
-using Hangfire.Mongo.Migration.Strategies.Backup;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using MongoDB.Driver;
-using Noname.Hangfire.Mongo.Filters;
-using Noname.Hangfire.Mongo.Models;
+﻿using Microsoft.Extensions.Hosting;
+using System;
 
 namespace Noname.Hangfire.Mongo.Extensions
 {
+    /// <summary>
+    ///
+    /// </summary>
     public static class HangfireMongoExtensions
     {
         /// <summary>
         /// Gets or sets the name of the database.
         /// </summary>
         /// <value> The name of the database. </value>
-        public static string NameDatabase(string env,string nameDb)
+        public static string NameDatabase(string env, string nameDb)
         {
             if (!env.IsNullOrWhiteSpaceCustom() && env != "prod")
             {
@@ -79,9 +69,9 @@ namespace Noname.Hangfire.Mongo.Extensions
         /// <summary>
         /// </summary>
         /// <returns> </returns>
-        public static bool isDev()
+        public static bool IsDev()
         {
-            if (isDevelopment())
+            if (IsDevelopment())
             {
                 return true;
             }
@@ -91,7 +81,7 @@ namespace Noname.Hangfire.Mongo.Extensions
         /// <summary>
         /// </summary>
         /// <returns> </returns>
-        public static bool isDevelopment()
+        public static bool IsDevelopment()
         {
             return GetEnvironmentName().ToUpper() == "development".ToUpper();
         }
